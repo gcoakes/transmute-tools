@@ -21,8 +21,8 @@
 #[macro_use]
 extern crate transmute_tools;
 
-#[cfg_attr(target_endian = "big", endianness(le))]
-#[cfg_attr(target_endian = "little", endianness(be))]
+#[cfg(target_endian = "little")]
+#[endianness(be)]
 #[derive(Default)]
 #[repr(C, packed)]
 pub struct Convert {
@@ -30,6 +30,19 @@ pub struct Convert {
     pub b: u8,
     pub c: u16,
     #[le]
+    pub d: u128,
+    pub e: Box<()>,
+}
+
+#[cfg(target_endian = "big")]
+#[endianness(le)]
+#[derive(Default)]
+#[repr(C, packed)]
+pub struct Convert {
+    pub a: u8,
+    pub b: u8,
+    pub c: u16,
+    #[be]
     pub d: u128,
     pub e: Box<()>,
 }
