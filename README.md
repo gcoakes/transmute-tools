@@ -1,9 +1,9 @@
-# structural-assert
+# transmute-tools
 
-Proc macros and traits to assist with safely creating transmutable data
-structures. To be clear, this does not make it safe to use transmute. This is
-just a collection of tools that might help you do that. The specific, initial
-use case was to help faithfully reproduce structures from the [NVMe
+Proc macros to assist with safely creating transmutable data structures. To
+be clear, this does not make it safe to use transmute. This is just a
+collection of tools that might help you do that. The specific, initial use
+case was to help faithfully reproduce structures from the [NVMe
 spec](https://nvmexpress.org/specifications/).
 
 ## Usage
