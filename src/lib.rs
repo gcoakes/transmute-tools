@@ -47,3 +47,22 @@ pub fn test_structure(attrs: TokenStream, tokens: TokenStream) -> TokenStream {
     };
     output.into()
 }
+
+mod endianness;
+use endianness::{Endianness, EndiannessAttrs};
+
+#[proc_macro_attribute]
+pub fn endianness(attrs: TokenStream, tokens: TokenStream) -> TokenStream {
+    let mut item = parse_macro_input!(tokens as Endianness);
+    let attrs = parse_macro_input!(attrs as EndiannessAttrs);
+    let fns = item.drain_field_endianness(attrs.0);
+    let ident = &item.ident;
+    let output = quote! {
+        #item
+
+        impl #ident {
+            #fns
+        }
+    };
+    output.into()
+}
