@@ -1,0 +1,17 @@
+[package]
+name = "transmute-tools"
+version = "0.1.0"
+authors = ["Gregory C. Oakes <gregcoakes@gmail.com>"]
+edition = "2018"
+license = "MIT"
+repository = "https://github.com/gcoakes/transmute-tools"
+description = "Proc macros and traits to assist with safely creating transmutable data structures."
+
+[dependencies]
+memoffset = "0.6.3"
+proc-macro2 = "1.0.26"
+quote = "1.0.9"
+syn = { version = "1.0.69", features = ["full"] }
+
+[lib]
+proc-macro = true
